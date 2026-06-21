@@ -1,0 +1,6 @@
+{
+  "name": "Zenvy Mart",
+  "description": "A premium curated e-commerce experience featuring luxury watches, skincare, electronics, and fashion with express delivery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
