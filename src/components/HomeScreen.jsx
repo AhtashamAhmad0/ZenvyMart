@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Compass, Sparkles, MapPin, Clock, Send, Shield, Truck } from 'lucide-react';
 import { PRODUCTS } from '../data.js';
 import { ProductCard } from './ProductCard.jsx';
+import { HeroCarousel } from './HeroCarousel.jsx';
 
 const PACK_HUBS = [
   { city: 'Islamabad', time: '12 Hours Delivery', active: true, desc: 'Central Capital Premium Warehouse Hub' },
@@ -60,49 +61,103 @@ export const HomeScreen = ({ onGoToCollection, onViewProduct, onAddToCart, curre
   return (
     <div className="space-y-16 pb-20">
       {/* HERO */}
-      <section className="relative h-[500px] sm:h-[600px] bg-neutral-950 text-white overflow-hidden flex items-center">
+      {/* HERO */}
+      <HeroCarousel onGoToCollection={onGoToCollection} />
+      {/* <section className="relative min-h-[560px] sm:min-h-[680px] bg-neutral-950 text-white overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/70 to-neutral-900/40 z-10" />
           <img
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwlXgT4OBCbjEdV9PTSSqaE8SrIk38yCtWof1HIsVUrjUjC04S_2i9YhPjm2sP76h67usP_xbp9yl8ZBoq-keDdbryuTpXOWY73bNiyIQxcLJZjF-Bg4EqHVSXaKQmgfqeJOK6eypHowTcK6cdvFDzOjcPqd3Kp7XR4zBleqWn6X7oK7VdfMvt-3DZIamxhZermdCaCNIohQe8RQMu6IltvF3JRhLw8LmmKdLH21FSn0Qx8hEpYhXBLTBTCEjFrMvx7KrdPlWVkIM"
             referrerPolicy="no-referrer"
-            alt="Hero Background"
-            className="w-full h-full object-cover opacity-35 object-center mix-blend-luminosity scale-105"
+            alt="Zenvy Mart curated collection"
+            className="w-full h-full object-cover object-center opacity-40 scale-105"
           />
-          <div className="absolute top-1/4 left-1/3 w-80 h-80 rounded-full bg-amber-500/10 filter blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neutral-100/5 filter blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/85 to-neutral-950/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/40" />
+          <div
+            className="absolute inset-0 opacity-[0.06] mix-blend-screen"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(245,200,90,0.5) 39px, rgba(245,200,90,0.5) 40px)'
+            }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
-          <div className="max-w-2xl space-y-6">
-            <h1 className="font-sans font-extrabold tracking-tight leading-[1.1]">
-              <span className="block text-3xl sm:text-5xl text-amber-400">Zenvy Mart</span>
-              <span className="block text-3xl sm:text-5xl text-white mt-1">Online Shopping Made Easy</span>
-            </h1>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-end">
+            <div className="max-w-2xl space-y-7">
+              <div className="flex items-center gap-3">
+                <span className="h-px w-10 bg-amber-400/70" />
+                <span className="text-[11px] tracking-[0.25em] uppercase font-mono text-amber-300/90">
+                  The Autumn Curation
+                </span>
+              </div>
 
-            <p className="text-neutral-300 text-sm sm:text-base leading-relaxed font-sans max-w-lg">
-              Discover a curated world of premium essentials, where luxury meets unparalleled convenience for the modern lifestyle.
-            </p>
+              <h1 className="font-serif leading-[1.02] tracking-tight">
+                <span className="block text-[2.6rem] sm:text-6xl lg:text-7xl text-white font-medium">
+                  Shopping,
+                </span>
+                <span className="block text-[2.6rem] sm:text-6xl lg:text-7xl text-amber-300 font-medium italic -mt-1 sm:-mt-2">
+                  refined.
+                </span>
+              </h1>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-4">
-              <button
-                onClick={onGoToCollection}
-                className="bg-amber-500 hover:bg-amber-600 text-neutral-950 font-sans text-sm font-bold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/15 flex items-center justify-center gap-2"
-              >
-                <Compass className="w-4 h-4" />
-                Shop the Collection
-              </button>
+              <p className="text-neutral-300 text-[15px] sm:text-base leading-relaxed font-sans max-w-md border-l border-neutral-700 pl-4">
+                Zenvy Mart curates premium essentials for the modern lifestyle —
+                considered pieces, delivered with the speed and care they deserve.
+              </p>
 
-              <button
-                onClick={onGoToCollection}
-                className="bg-transparent hover:bg-white/5 text-white border border-neutral-700 hover:border-white font-sans text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300"
-              >
-                View Lookbook
-              </button>
+              <div className="flex flex-wrap items-center gap-4 pt-3">
+                <button
+                  onClick={onGoToCollection}
+                  className="group bg-amber-400 hover:bg-amber-300 text-neutral-950 font-sans text-sm font-bold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2"
+                >
+                  <Compass className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45" />
+                  Shop the Collection
+                </button>
+
+                <button
+                  onClick={onGoToCollection}
+                  className="text-sm font-semibold text-neutral-200 hover:text-amber-300 transition-colors underline-offset-4 hover:underline px-2 py-3.5"
+                >
+                  View Lookbook
+                </button>
+              </div>
+            </div>
+
+            <div className="hidden lg:block">
+              <div className="ml-auto w-full max-w-xs bg-neutral-950/60 backdrop-blur-md border border-neutral-700/60 rounded-2xl p-6 space-y-5">
+                <p className="text-[11px] tracking-[0.2em] uppercase font-mono text-neutral-400">
+                  Why Zenvy
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Truck className="w-4 h-4 text-amber-300 mt-0.5 shrink-0" />
+                    <p className="text-[13px] text-neutral-300 leading-relaxed">
+                      Same-day dispatch from Islamabad, doorstep within 12&ndash;48 hours nationwide.
+                    </p>
+                  </div>
+                  <div className="h-px bg-neutral-800" />
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-4 h-4 text-amber-300 mt-0.5 shrink-0" />
+                    <p className="text-[13px] text-neutral-300 leading-relaxed">
+                      Every parcel insured in transit, no exceptions.
+                    </p>
+                  </div>
+                  <div className="h-px bg-neutral-800" />
+                  <div className="flex items-start gap-3">
+                    <Sparkles className="w-4 h-4 text-amber-300 mt-0.5 shrink-0" />
+                    <p className="text-[13px] text-neutral-300 leading-relaxed">
+                      Hand-curated catalog &mdash; nothing listed we wouldn&apos;t buy ourselves.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+
+        <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent z-20" />
+      </section> */}
 
       {/* FEATURED CATEGORIES (single, consolidated section) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
