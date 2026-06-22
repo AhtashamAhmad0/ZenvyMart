@@ -33,7 +33,8 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Lahore, Islamabad, Karachi Hubs</span>
+                <span>
+Mari Mian Sahib Bahawalnagar, Bahawalnagar, Pakistan</span>
               </li>
             </ul>
           </div>

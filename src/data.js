@@ -29,17 +29,17 @@ export const PRODUCTS = [
     availability: 'in_stock'
   },
   // Aurelius Chrono
-  {
-    id: 'aurelius-chrono',
-    name: 'Aurelius Chrono',
-    category: 'Watches',
-    price: 160, // ~45,000 PKR
-    currency: 'USD',
-    description: 'A masterpiece of precision. Classic multi-dial chronograph layout detailed with pure gold markers and housed in aerospace titanium with active speed tachymeter.',
-    rating: 4.9,
-    reviewsCount: 84,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBot6w6Mx9nJkGkGBObrRy0imNt7696DYDw9H-KFkhfwRATNssua79nU3dShYh5kvS2aLrRRMKyWq_AFrzlF5XLZaCmedlsqpMC9czLZdafEAJDWQLghzKDDElQYF47xtIBpQl9H1bFH_wOuEDNY_rUxd_-DwVxAuz8gLCxWTR5SgCF7zRSEoYMX4H95p31EkC2Tw4BOtrTRNEieaQcKT06tKd8Nj-YQkXktp2rQ6DUeyn_WW-c9_kLXE2494HP6PHolg1N-NqYS5o'
-  },
+  // {
+  //   id: 'aurelius-chrono',
+  //   name: 'Aurelius Chrono',
+  //   category: 'Watches',
+  //   price: 160, // ~45,000 PKR
+  //   currency: 'USD',
+  //   description: 'A masterpiece of precision. Classic multi-dial chronograph layout detailed with pure gold markers and housed in aerospace titanium with active speed tachymeter.',
+  //   rating: 4.9,
+  //   reviewsCount: 84,
+  //   image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBot6w6Mx9nJkGkGBObrRy0imNt7696DYDw9H-KFkhfwRATNssua79nU3dShYh5kvS2aLrRRMKyWq_AFrzlF5XLZaCmedlsqpMC9czLZdafEAJDWQLghzKDDElQYF47xtIBpQl9H1bFH_wOuEDNY_rUxd_-DwVxAuz8gLCxWTR5SgCF7zRSEoYMX4H95p31EkC2Tw4BOtrTRNEieaQcKT06tKd8Nj-YQkXktp2rQ6DUeyn_WW-c9_kLXE2494HP6PHolg1N-NqYS5o'
+  // },
   // ... (rest omitted for brevity)
 ];
 
