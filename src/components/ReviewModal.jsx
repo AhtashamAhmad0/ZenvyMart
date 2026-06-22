@@ -50,7 +50,7 @@ export const ReviewModal = ({ isOpen, onClose, onSubmitReview }) => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && <div className="p-2.5 text-xs text-rose-450 bg-rose-950/20 border border-rose-900/40 rounded-md font-medium">{error}</div>}
+          {error && <div className="p-2.5 text-xs text-rose-400 bg-rose-950/20 border border-rose-900/40 rounded-md font-medium">{error}</div>}
 
           <div>
             <label className="block text-xs font-semibold text-[#888888] uppercase tracking-wider mb-1">Your Name <span className="text-rose-400">*</span></label>

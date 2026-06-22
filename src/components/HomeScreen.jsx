@@ -179,19 +179,18 @@ export const HomeScreen = ({ onGoToCollection, onViewProduct, onAddToCart, curre
           </button>
         </div>
 
-        <div className="grid grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3 sm:gap-4">
           {CATEGORY_TILES.map((tile, idx) => {
-            // Zig-zag widths: row1 = [wide, narrow] (Watches, Skincare), row2 = [narrow, wide] (Electronics, Fashion)
             const isRowOne = idx < 2;
             const isFirstInRow = idx % 2 === 0;
             const spanClass = isRowOne
-              ? (isFirstInRow ? 'col-span-3' : 'col-span-2')
-              : (isFirstInRow ? 'col-span-2' : 'col-span-3');
+              ? (isFirstInRow ? 'xl:col-span-3' : 'xl:col-span-2')
+              : (isFirstInRow ? 'xl:col-span-2' : 'xl:col-span-3');
             return (
               <div
                 key={tile.name}
                 onClick={onGoToCollection}
-                className={`group relative h-80 sm:h-96 rounded-xl overflow-hidden cursor-pointer border border-[#1f1f1f] shadow-md hover:shadow-xl transition-all duration-500 ${spanClass}`}
+                className={`group relative h-72 sm:h-80 lg:h-96 rounded-xl overflow-hidden cursor-pointer border border-[#1f1f1f] shadow-md hover:shadow-xl transition-all duration-500 ${spanClass}`}
               >
                 <img
                   src={tile.image}
@@ -260,7 +259,7 @@ export const HomeScreen = ({ onGoToCollection, onViewProduct, onAddToCart, curre
             <div className="flex flex-wrap gap-6 pt-2">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                  <Truck className="w-4.5 h-4.5" />
+                    <Truck className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-[#F0F0F0]">Rapid Logistics</p>
@@ -269,7 +268,7 @@ export const HomeScreen = ({ onGoToCollection, onViewProduct, onAddToCart, curre
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                  <Shield className="w-4.5 h-4.5" />
+                  <Shield className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-sm font-bold text-[#F0F0F0]">Insured Transit</p>

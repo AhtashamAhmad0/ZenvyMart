@@ -40,7 +40,7 @@ export const DetailScreen = ({ product, currency, onBack, onAddToCart, onViewPro
             <h1 className="text-2xl sm:text-3xl font-sans font-extrabold text-white tracking-tight leading-tight">{product.name}</h1>
 
             <div className="flex items-center gap-3">
-              <div className="flex text-amber-400">{Array.from({ length: 5 }).map((_, i) => (<Star key={i} className={`w-4.5 h-4.5 ${i < Math.floor(ratingsAverage) ? 'fill-current' : 'text-neutral-800'}`} />))}</div>
+              <div className="flex text-amber-400">{Array.from({ length: 5 }).map((_, i) => (<Star key={i} className={`w-5 h-5 ${i < Math.floor(ratingsAverage) ? 'fill-current' : 'text-neutral-800'}`} />))}</div>
               <span className="font-mono text-sm font-bold text-white mt-0.5">{ratingsAverage} Rating</span>
               <span className="text-xs text-[#333] mt-0.5">|</span>
               <span className="flex items-center gap-1 text-xs text-[#888888] font-medium underline cursor-pointer hover:text-amber-400"><MessageSquare className="w-3.5 h-3.5 text-[#555]" />{reviews ? reviews.length : 0} Verified Reviews</span>

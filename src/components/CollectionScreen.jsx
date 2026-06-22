@@ -130,7 +130,61 @@ export const CollectionScreen = ({ onViewProduct, onAddToCart, currency, searchQ
             <div className="flex items-center gap-2 self-end sm:self-auto shrink-0 text-xs text-[#888888]"><ArrowUpDown className="w-3.5 h-3.5 text-[#555] shrink-0" /><span>Sort:</span><select value={filters.sort} onChange={(e) => setFilters({ ...filters, sort: e.target.value })} className="border border-[#222] rounded-lg p-1.5 bg-[#1A1A1A] text-white font-medium focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer"><option value="recommended">Best Match Curated</option><option value="price_low">Price: Low to High</option><option value="price_high">Price: High to Low</option><option value="rating">Stars & Reviews Ratings</option></select></div>
           </div>
 
-          {mobileFiltersOpen && (<div className="lg:hidden p-5 bg-[#111111] rounded-xl border border-[#222222] space-y-4 animate-fadeIn shadow-lg">{/* simplified mobile filters shown earlier */}</div>)}
+          {mobileFiltersOpen && (
+            <div className="lg:hidden p-5 bg-[#111111] rounded-xl border border-[#222222] space-y-5 animate-fadeIn shadow-lg">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-sm font-semibold text-white">Filter Options</h2>
+                  <p className="text-[11px] text-[#888888]">Refine your product discovery for smaller screens.</p>
+                </div>
+                <button onClick={() => setMobileFiltersOpen(false)} className="text-xs text-[#888888] hover:text-white transition-colors">Close</button>
+              </div>
+
+              <div className="space-y-4">
+                <div className="border border-[#222222] rounded-xl p-4 bg-[#0F0F0F]">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#888888] font-semibold mb-3">Departments</p>
+                  <div className="space-y-2">
+                    {CATEGORIES_LIST.map((cat) => {
+                      const isChecked = filters.categories.includes(cat);
+                      return (
+                        <label key={cat} className="flex items-center gap-3 cursor-pointer text-sm text-[#888888] hover:text-white transition-colors">
+                          <input type="checkbox" checked={isChecked} onChange={() => handleCategoryToggle(cat)} className="w-4 h-4 rounded-md border-[#333333] text-amber-400 focus:ring-amber-400 cursor-pointer" />
+                          <span className={`${isChecked ? 'text-white font-semibold' : ''}`}>{cat}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="border border-[#222222] rounded-xl p-4 bg-[#0F0F0F]">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#888888] font-semibold mb-3">Price cap</p>
+                  <div className="text-xs text-[#888888] font-mono flex justify-between mb-3"><span>0 USD</span><span>{formatPrice(filters.priceRange[1], currency)}</span></div>
+                  <input type="range" min="0" max="1500" step="50" value={filters.priceRange[1]} onChange={(e) => setFilters({ ...filters, priceRange: [filters.priceRange[0], parseInt(e.target.value)] })} className="w-full accent-amber-400 cursor-pointer" />
+                </div>
+
+                <div className="border border-[#222222] rounded-xl p-4 bg-[#0F0F0F]">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#888888] font-semibold mb-3">Shipping status</p>
+                  <div className="space-y-2 text-sm text-[#888888]">
+                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="availability-mobile" checked={filters.availability === 'all'} onChange={() => setFilters({ ...filters, availability: 'all' })} className="text-amber-400 focus:ring-amber-400 accent-amber-400" /><span>All Statuses</span></label>
+                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="availability-mobile" checked={filters.availability === 'in_stock'} onChange={() => setFilters({ ...filters, availability: 'in_stock' })} className="text-amber-400 focus:ring-amber-400 accent-amber-400" /><span>Ready Stock</span></label>
+                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="availability-mobile" checked={filters.availability === 'pre_order'} onChange={() => setFilters({ ...filters, availability: 'pre_order' })} className="text-amber-400 focus:ring-amber-400 accent-amber-400" /><span>Secure Pre-orders</span></label>
+                  </div>
+                </div>
+
+                <div className="border border-[#222222] rounded-xl p-4 bg-[#0F0F0F]">
+                  <label className="text-xs uppercase tracking-[0.24em] text-[#888888] font-semibold mb-2 block">Sort by</label>
+                  <select value={filters.sort} onChange={(e) => setFilters({ ...filters, sort: e.target.value })} className="w-full px-3 py-2 rounded-xl bg-[#111111] border border-[#222] text-sm text-white focus:outline-none focus:ring-1 focus:ring-amber-400 cursor-pointer">
+                    <option value="recommended">Best Match Curated</option>
+                    <option value="price_low">Price: Low to High</option>
+                    <option value="price_high">Price: High to Low</option>
+                    <option value="rating">Stars & Reviews Ratings</option>
+                  </select>
+                </div>
+
+                <button onClick={resetFilters} className="w-full bg-[#1A1A1A] hover:bg-[#222] border border-[#333] text-white text-sm font-semibold py-3 rounded-xl transition-colors">Reset All Filters</button>
+              </div>
+            </div>
+          )}
 
           {filteredProducts.length === 0 ? (
             <div className="py-24 text-center bg-[#111111] border border-[#222222] text-white rounded-2xl shadow-xs flex flex-col items-center justify-center">

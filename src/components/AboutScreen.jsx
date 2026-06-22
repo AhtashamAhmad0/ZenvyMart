@@ -36,7 +36,7 @@ export const AboutScreen = () => {
           <p className="text-xs sm:text-sm text-[#888888] leading-relaxed">Sought-after watches, special luxury leather luggage, or botanical hydration creams not currently in our catalog? Our global networks can procure it securely and deliver locally.</p>
 
           {sent ? (
-            <div className="p-4 bg-emerald-500/10 border border-emerald-550 text-emerald-400 text-xs font-bold rounded-xl">Thank you! Our specialty concierge procurement department has registered your boutique inquiry.</div>
+            <div className="p-4 bg-emerald-500/10 border border-emerald-400 text-emerald-400 text-xs font-bold rounded-xl">Thank you! Our specialty concierge procurement department has registered your boutique inquiry.</div>
           ) : (
             <form onSubmit={handleSourcingInquiry} className="space-y-3 text-left">
               <label className="block text-[10px] uppercase font-mono font-bold text-neutral-400">Sourcing Item Description, Model, or Scent Node specifics:</label>
